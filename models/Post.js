@@ -43,13 +43,15 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
+                // ensure URL is a verified link
                 isURL: true
             }
         },
+        // define column that determines who posted
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-                // establish foreign key
+                // establish foreign key by creaed reference to user model (id column -> primary key)
                 model: 'user',
                 key: 'id'
             }
