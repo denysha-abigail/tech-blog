@@ -1,0 +1,94 @@
+const router = require('express').Router();
+const { User, Post, Vote } = require('../../models');
+const withAuth = require('../../utils/auth');
+
+// GET /api/users
+// select all users from the user table in the database and send it back as JSON when client makes GET request to /api/users
+router.get('/', (req, res) => {
+    User.findAll({
+        attributes: { exclude: ['password'] }
+    })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// GET /api/users/1
+// only returns one user based on value of req.params.id
+router.get('/:id', (req, res) => {
+    User.findOne({
+        attributes: { exclude: ['password'] },
+        // equivalent to SQL query --> SELECT * FROM users WHERE id = ?;
+        where: {
+            id: req.params.id
+        },
+        // see which posts a user has created and which posts a user has voted on
+        include: [
+            {
+                model: Post,
+                attributes: ['id', 'title', 'post_url', 'created_at']
+            },
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'created_at'],
+                include: {
+                    model: Post,
+                    attributes: ['title']
+                }
+            },
+            // include Post model and contextualize it by going through the Vote table to receive title information of every post a single user has ever voted on
+            {
+                model: Post,
+                attributes: ['title'],
+                through: Vote,
+                as: 'voted_posts'
+            }
+        ]
+    })
+        .then(dbUserData => {
+            if (!dbUserData) {
+                // if user with nonexistent id value is searched, send back a 404 status code to indicate the wrong piece of data was requested
+                res.status(404).json({ message: 'No user found with this id' });
+                return;
+            }
+            res.json(dbUserData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// POST to /api/users
+router.post('/', withAuth, (req, res) => {
+    // use sequelize's built-in .create() method to insert data
+    // equivalent to SQL query --> INSERT INTO users (username, email, password) VALUES (?, ?, ?);
+    User.create({
+        // pass in key: value pairs; where keys are what is defined in the User model and values are what is received in req.body from client
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+    })
+    .then(dbUserData => {
+        // req.session.save() method will initiate creation of the session and then run the callback function once complete
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            // boolean describing if user is logged in or not
+            req.session.loggedIn = true;
+
+            res.json(dbUserData);
+        });
+    })
+});
+
+// http://localhost:3001/api/users/login
+router.post('/login', withAuth, (req, res) => {
+    User.findOne({
+        where: {
+            
+        }
+    })
+})
