@@ -22,7 +22,7 @@ async function signUpFormHandler(event) {
         // after implementing the response variable, add error handling by using the .ok property on the response object
         if (response.ok) {
             // if the response is successful, we'll console.log('success')
-            console.log('sucess');
+            console.log('success');
         } else {
             // otherwise, we'll alert() the error
             alert(response.statusText);

@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const req = require('express/lib/request');
-const res = require('express/lib/response');
-const { User, Post, Vote } = require('../../models');
+const { User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET /api/users
@@ -26,11 +24,10 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        // see which posts a user has created and which posts a user has voted on
         include: [
             {
                 model: Post,
-                attributes: ['id', 'title', 'post_url', 'created_at']
+                attributes: ['id', 'title', 'post_content', 'created_at']
             },
             {
                 model: Comment,
@@ -39,13 +36,6 @@ router.get('/:id', (req, res) => {
                     model: Post,
                     attributes: ['title']
                 }
-            },
-            // include Post model and contextualize it by going through the Vote table to receive title information of every post a single user has ever voted on
-            {
-                model: Post,
-                attributes: ['title'],
-                through: Vote,
-                as: 'voted_posts'
             }
         ]
     })
@@ -179,3 +169,4 @@ router.delete('/id', withAuth, (req, res) => {
 });
 
 module.exports = router;
+
