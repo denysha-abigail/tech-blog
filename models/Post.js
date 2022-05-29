@@ -19,7 +19,10 @@ Post.init(
         },
         post_content: {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                len: [4, 1000]
+            }
         },
         // define column that determines who posted
         user_id: {

@@ -1,21 +1,19 @@
 // intended for all homepage-related views
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
-    console.log(req.session)
     Post.findAll({
         attributes: [
             'id',
-            'post_content',
             'title',
+            'post_content',
             'created_at'
         ],
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_id'],
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -45,6 +43,10 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.get('/signup', (req, res) => {
+    res.render('signup');
+});
+
 router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -52,8 +54,8 @@ router.get('/post/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'post_content',
             'title',
+            'post_content',
             'created_at'
         ],
         include: [

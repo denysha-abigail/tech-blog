@@ -1,12 +1,18 @@
-<article class="post">
-  <div class="title">
-    <h3>{{title}}</h3>
-    <h4>({{post_content}})</h4>
-  </div>
-  {{!-- format_plural takes in two arguments --> we're not using () to pass arguments, so we can separate arguments with spaces --}}
-  <div class="meta">
-    by {{user.username}} on {{format_date created_at}}
-    |
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-  </div>
-</article>
+<article class="post card">
+    <div class="card-header">
+        <div class="title">
+            {{title}}
+        </div>
+        <div class="meta">
+            Posted by {{user.username}} on {{format_date created_at}}
+        </div>
+    </div>
+    <div class="card-body">  
+        <div class="content">
+            {{post_content}}
+        </div>
+        <div>  
+            {{comments.length}} {{format_plural 'comment' comments.length}}
+        </div>
+    </div>
+</article> 

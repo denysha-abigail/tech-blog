@@ -9,7 +9,7 @@ router.use('/api', apiRoutes);
 router.use('/', homeRoutes);
 router.use('/dashboard', dashboardRoutes);
 
-// if request is made to nonexistent endpoint, send 404 error to indicate user request incorrect resource
+// if request is made to nonexistent endpoint, send 404 error to indicate client requested incorrect resource
 router.use((req, res) => {
     res.status(400).end();
 });
