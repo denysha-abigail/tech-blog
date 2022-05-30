@@ -3,7 +3,7 @@ const { Post } = require('../models');
 const postData = [
     {
         title: "AI is making headlines!",
-        post_content: "Forbes recently published an article stating that extraordinary AI applications will soon be developed and built using drag-and-drop graphical interfaces",
+        post_content: "Forbes recently published an article stating that extraordinary AI applications will soon be developed and built using drag-and-drop graphical interfaces!",
         user_id: 2
     },
     {
