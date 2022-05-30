@@ -32,7 +32,7 @@ This full stack application utilizes HTML, CSS, Handlebars, JavaScript, MySQL, N
 - *Optional: Once the server has been turned on, head over to Insomnia to test API GET, POST, PUT, and DELETE routes in order to create, read, update, and delete data in the database.* 
 
 ## Preview
-- Visit the deployed Heroku site [HERE](https://tech-it.herokuapp.com/signup)
+- Visit the deployed Heroku site [HERE](https://tech-it.herokuapp.com)
 
 ## License
 - This project is licensed under: [ISC](https://opensource.org/licenses/ISC)
