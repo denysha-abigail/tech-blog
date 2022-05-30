@@ -5,10 +5,11 @@
 ## Description
 This full stack application utilizes HTML, CSS, Handlebars, JavaScript, MySQL, Node.js, and Node Package Manager (Bcrypt, Connect-Session-Sequelize, Dotenv, Express, Express-Handlebars, Express-Session, Handlebars, MySQL2, Sequelize) to build a CMS-style blog site that enables developers to post and comment about all things tech by following the MVC software design pattern and implementing Object-Relational Mapping, CRUD functionality, template engines, and authentication features.
 
+- Visit the deployed Heroku site [HERE](https://tech-it.herokuapp.com)
+
 ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
-  - [Preview](#preview)
   - [License](#license)
   - [Contribution](#contribution)
   - [Questions](#questions)
@@ -30,9 +31,6 @@ This full stack application utilizes HTML, CSS, Handlebars, JavaScript, MySQL, N
 - After exiting the mysql shell, run the command ```npm run seed``` to populate data into your tables. Once the command finishes executing, type ```npm start```, ```npm run start``` OR ```node server.js``` on your terminal to turn on your server.
 
 - *Optional: Once the server has been turned on, head over to Insomnia to test API GET, POST, PUT, and DELETE routes in order to create, read, update, and delete data in the database.* 
-
-## Preview
-- Visit the deployed Heroku site [HERE](https://tech-it.herokuapp.com)
 
 ## License
 - This project is licensed under: [ISC](https://opensource.org/licenses/ISC)
