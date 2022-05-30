@@ -28,7 +28,7 @@ const commentData = [
         comment_text: "This is groundbreaking!"
     },
     {
-        user_id: 5,
+        user_id: 2,
         post_id: 2,
         comment_text: "OMGGG!"
     },

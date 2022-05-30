@@ -21,7 +21,7 @@ Post.init(
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [4, 1000]
+                len: [1, 1000]
             }
         },
         // define column that determines who posted

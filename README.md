@@ -1,55 +1,49 @@
-# tech-blog
+# Tech-It
 
-<!-- AS A developer who writes about tech
-I WANT a CMS-style blog site
-SO THAT I can publish articles, blog posts, and my thoughts and opinions
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-GIVEN a CMS-style blog site
+## Description
+This full stack application utilizes HTML, CSS, Handlebars, JavaScript, MySQL, Node.js, and Node Package Manager (Bcrypt, Connect-Session-Sequelize, Dotenv, Express, Express-Handlebars, Express-Session, Handlebars, MySQL2, Sequelize) to build a CMS-style blog site that enables developers to post and comment about all things tech by following the MVC software design pattern and implementing Object-Relational Mapping, CRUD functionality, template engines, and authentication features.
 
-WHEN I visit the site for the first time
-THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
+## Table of Contents
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Preview](#preview)
+  - [License](#license)
+  - [Contribution](#contribution)
+  - [Questions](#questions)
+  - [Credits](#credits)
 
-WHEN I click on the homepage option
-THEN I am taken to the homepage
+## Installation
+- Prior to starting up the program, make sure you have [Node.js](https://nodejs.org/en/download/), [MySQL](https://coding-boot-camp.github.io/full-stack/mysql/mysql-installation-guide), and [Insomnia](https://insomnia.rest/download) (optional) installed on your local computer for optimal user experience.
 
-WHEN I click on any other links in the navigation
-THEN I am prompted to either sign up or sign in
+- To install this application, clone this repository onto your local computer, open it in your code editor, and run the following command on your terminal: ```npm install```
 
-WHEN I choose to sign up
-THEN I am prompted to create a username and password
+- Once all dependencies have been installed, create an environment variable file (.env) at the root level of this application with the following content for successful connection to the database:
+    - DB_NAME = ecommerce_db
+    - DB_USER = <'mysql-username-here'> (If no username is set, default user for SQL is 'root')
+    - DB_PW = <'mysql-password-here'> (If no password is set, by default SQL has no password)
 
-WHEN I click on the sign-up button
-THEN my user credentials are saved and I am logged into the site
+## Usage
+- Once all packages have been installed, run the mysql shell command ```mysql -u root -p``` and enter your password (if one has been set) before running ```source db/schema.sql```. Once completed, type ```exit```.
 
-WHEN I revisit the site at a later time and choose to sign in
-THEN I am prompted to enter my username and password
+- After exiting the mysql shell, run the command ```npm run seed``` to populate data into your tables. Once the command finishes executing, type ```npm start```, ```npm run start``` OR ```node server.js``` on your terminal to turn on your server.
 
-WHEN I am signed in to the site
-THEN I see navigation links for the homepage, the dashboard, and the option to log out
+- *Optional: Once the server has been turned on, head over to Insomnia to test API GET, POST, PUT, and DELETE routes in order to create, read, update, and delete data in the database.* 
 
-WHEN I click on the homepage option in the navigation
-THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
+## Preview
+- Visit the deployed Heroku site [HERE](https://tech-it.herokuapp.com/signup)
 
-WHEN I click on an existing blog post
-THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
+## License
+- This project is licensed under: [MIT](https://opensource.org/licenses/MIT)
 
-WHEN I enter a comment and click on the submit button while signed in
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
+## Contribution 
+- Forking this repository is always welcomed and encouraged!
 
-WHEN I click on the dashboard option in the navigation
-THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
+> If you encounter a problem with this application, please add an issue or pull request to the GitHub repository. 
 
-WHEN I click on the button to add a new blog post
-THEN I am prompted to enter both a title and contents for my blog post
+## Questions
+- Please feel free to use this application at any time and visit my personal [GitHub](https://github.com/denysha-abigail) profile to access other open source projects! 
 
-WHEN I click on the button to create a new blog post
-THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-
-WHEN I click on one of my existing posts in the dashboard
-THEN I am able to delete or update my post and taken back to an updated dashboard
-
-WHEN I click on the logout option in the navigation
-THEN I am signed out of the site
-
-WHEN I am idle on the site for more than a set time
-THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments -->
+## Credits
+- *[Denysha Guerrios-Armaiz](https://github.com/denysha-abigail), 05/2022*
