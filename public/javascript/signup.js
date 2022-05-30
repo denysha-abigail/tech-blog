@@ -21,7 +21,7 @@ async function signUpFormHandler(event) {
         });
         // after implementing the response variable, add error handling by using the .ok property on the response object
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         } else {
             // otherwise, we'll alert() the error
             alert(response.statusText);

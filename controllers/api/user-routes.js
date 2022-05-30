@@ -123,49 +123,5 @@ router.post('/logout', (req, res) => {
     }
 });
 
-            // // PUT /api/users/?
-            // // update existing data
-            // router.put('/:id', withAuth, (req, res) => {
-            //     // similar to SQL query --> UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?;
-            //     User.update(req.body, {
-            //         individualHooks: true,
-            //         where: {
-            //             id: req.params.id
-            //         }
-            //     })
-            //         .then(dbUserData => {
-            //             if (!dbUserData[0]) {
-            //                 res.status(404).json({ message: 'No user found with this id' });
-            //                 return;
-            //             }
-            //             res.json(dbUserData);
-            //         })
-            //         .catch(err => {
-            //             console.log(err);
-            //             res.status(500).json(err);
-            //         });
-            // });
-
-            // // DELETE /api/users/?
-            // // delete user from database
-            // router.delete('/id', withAuth, (req, res) => {
-            //     User.destroy({
-            //         where: {
-            //             id: req.params.id
-            //         }
-            //     })
-            //         .then(dbUserData => {
-            //             if (!dbUserData) {
-            //                 res.status(404).json({ message: 'No user found with this id' });
-            //                 return;
-            //             }
-            //             res.json(dbUserData)
-            //         })
-            //         .catch(err => {
-            //             console.log(err);
-            //             res.status(500).json(err);
-            //         });
-            // });
-
 module.exports = router;
 
