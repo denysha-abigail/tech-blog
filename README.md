@@ -35,7 +35,7 @@ This full stack application utilizes HTML, CSS, Handlebars, JavaScript, MySQL, N
 - Visit the deployed Heroku site [HERE](https://tech-it.herokuapp.com/signup)
 
 ## License
-- This project is licensed under: [MIT](https://opensource.org/licenses/MIT)
+- This project is licensed under: [ISC](https://opensource.org/licenses/ISC)
 
 ## Contribution 
 - Forking this repository is always welcomed and encouraged!
